@@ -27,6 +27,7 @@
 		3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787A23EB5AC0008926B3 /* BookDetailView.swift */; };
 		3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787C23EB5AF1008926B3 /* FavoritesView.swift */; };
 		3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787E23EB5B09008926B3 /* SettingView.swift */; };
+		8D4CD85823EB772900A3A9F4 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD85723EB772900A3A9F4 /* SecretKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		3E30787A23EB5AC0008926B3 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		3E30787C23EB5AF1008926B3 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3E30787E23EB5B09008926B3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		8D4CD85723EB772900A3A9F4 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		3E30783A23EB5727008926B3 /* NYTBGroupProject */ = {
 			isa = PBXGroup;
 			children = (
+				8D4CD85623EB770600A3A9F4 /* Secrets */,
 				3E30786323EB5824008926B3 /* Models */,
 				3E30786023EB57DF008926B3 /* Network Services */,
 				3E30787523EB5A44008926B3 /* CollectionViewCells */,
@@ -175,6 +178,14 @@
 				3E30787823EB5AA2008926B3 /* FavoritesCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		8D4CD85623EB770600A3A9F4 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				8D4CD85723EB772900A3A9F4 /* SecretKey.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */,
 				3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */,
 				3E30787223EB59CB008926B3 /* NYTBookStruct.swift in Sources */,
+				8D4CD85823EB772900A3A9F4 /* SecretKey.swift in Sources */,
 				3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */,
 				3E30787923EB5AA2008926B3 /* FavoritesCell.swift in Sources */,
 				3E30786A23EB5931008926B3 /* BookDetailViewController.swift in Sources */,
