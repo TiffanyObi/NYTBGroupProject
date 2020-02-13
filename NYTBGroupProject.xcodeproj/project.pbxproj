@@ -27,6 +27,7 @@
 		3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787A23EB5AC0008926B3 /* BookDetailView.swift */; };
 		3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787C23EB5AF1008926B3 /* FavoritesView.swift */; };
 		3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787E23EB5B09008926B3 /* SettingView.swift */; };
+		F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3900123F5B73800D62DB5 /* Secrets.swift */; };
 		3E30788523EB64A2008926B3 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30788423EB64A2008926B3 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		3E30787A23EB5AC0008926B3 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		3E30787C23EB5AF1008926B3 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3E30787E23EB5B09008926B3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		F1E3900123F5B73800D62DB5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3E30788423EB64A2008926B3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 		3E30783A23EB5727008926B3 /* NYTBGroupProject */ = {
 			isa = PBXGroup;
 			children = (
+				F1E3900023F5B72300D62DB5 /* Secrets */,
 				3E30788323EB647D008926B3 /* Secrets */,
 				3E30786323EB5824008926B3 /* Models */,
 				3E30786023EB57DF008926B3 /* NetworkServices */,
@@ -180,6 +183,10 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		F1E3900023F5B72300D62DB5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				F1E3900123F5B73800D62DB5 /* Secrets.swift */,
 		3E30788323EB647D008926B3 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +306,8 @@
 				3E30787723EB5A8D008926B3 /* NYTBestSellersCell.swift in Sources */,
 				3E30783C23EB5727008926B3 /* AppDelegate.swift in Sources */,
 				3E30786C23EB5954008926B3 /* FavoritesViewController.swift in Sources */,
+				F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */,
+
 				3E30788523EB64A2008926B3 /* Secrets.swift in Sources */,
 				3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */,
 				3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */,

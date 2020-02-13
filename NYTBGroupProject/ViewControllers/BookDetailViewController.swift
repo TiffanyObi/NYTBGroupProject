@@ -37,13 +37,4 @@ class BookDetailViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         
     }
-    
-    
-   
-    
-
-    
-
 }
-
-
