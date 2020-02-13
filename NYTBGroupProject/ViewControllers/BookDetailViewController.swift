@@ -8,23 +8,37 @@
 
 import UIKit
 
+
+
+import SafariServices
+import DataPersistence
+
 class BookDetailViewController: UIViewController {
 
+    private var bookDetailView = BookDetailView()
+    private var dataPersistence: DataPersistence<Book>
+    private var selectedBook:Book
+    
+    init(_ dataPersistence: DataPersistence<Book>, _ selectedBook: Book){
+        self.dataPersistence = dataPersistence
+        self.selectedBook = selectedBook
+        super.init(nibName: nil, bundle: nil)
+       
+    }
+   
+    required init(coder: NSCoder) {
+        fatalError("error")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        view = bookDetailView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemGroupedBackground
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

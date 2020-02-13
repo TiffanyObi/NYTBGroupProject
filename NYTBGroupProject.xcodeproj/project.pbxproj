@@ -27,8 +27,13 @@
 		3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787A23EB5AC0008926B3 /* BookDetailView.swift */; };
 		3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787C23EB5AF1008926B3 /* FavoritesView.swift */; };
 		3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787E23EB5B09008926B3 /* SettingView.swift */; };
+
 		8D4CD85823EB772900A3A9F4 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD85723EB772900A3A9F4 /* SecretKey.swift */; };
 		8D7A584123F5BC1F007A3F95 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A584023F5BC1F007A3F95 /* EmptyView.swift */; };
+
+		F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3900123F5B73800D62DB5 /* Secrets.swift */; };
+		3E30788523EB64A2008926B3 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30788423EB64A2008926B3 /* Secrets.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +70,13 @@
 		3E30787A23EB5AC0008926B3 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		3E30787C23EB5AF1008926B3 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3E30787E23EB5B09008926B3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+
 		8D4CD85723EB772900A3A9F4 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
 		8D7A584023F5BC1F007A3F95 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+
+		F1E3900123F5B73800D62DB5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3E30788423EB64A2008926B3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +119,14 @@
 		3E30783A23EB5727008926B3 /* NYTBGroupProject */ = {
 			isa = PBXGroup;
 			children = (
+
 				8D4CD85623EB770600A3A9F4 /* Secrets */,
+
+				F1E3900023F5B72300D62DB5 /* Secrets */,
+				3E30788323EB647D008926B3 /* Secrets */,
+
 				3E30786323EB5824008926B3 /* Models */,
-				3E30786023EB57DF008926B3 /* Network Services */,
+				3E30786023EB57DF008926B3 /* NetworkServices */,
 				3E30787523EB5A44008926B3 /* CollectionViewCells */,
 				3E30786423EB5841008926B3 /* Views */,
 				3E30786123EB57F2008926B3 /* ViewControllers */,
@@ -134,12 +149,12 @@
 			path = NYTBGroupProjectTests;
 			sourceTree = "<group>";
 		};
-		3E30786023EB57DF008926B3 /* Network Services */ = {
+		3E30786023EB57DF008926B3 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
 				3E30786F23EB59AC008926B3 /* NYTAPIClient.swift */,
 			);
-			path = "Network Services";
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 		3E30786123EB57F2008926B3 /* ViewControllers */ = {
@@ -183,10 +198,21 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+
 		8D4CD85623EB770600A3A9F4 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
 				8D4CD85723EB772900A3A9F4 /* SecretKey.swift */,
+
+		F1E3900023F5B72300D62DB5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				F1E3900123F5B73800D62DB5 /* Secrets.swift */,
+		3E30788323EB647D008926B3 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				3E30788423EB64A2008926B3 /* Secrets.swift */,
+
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -302,6 +328,9 @@
 				3E30787723EB5A8D008926B3 /* NYTBestSellersCell.swift in Sources */,
 				3E30783C23EB5727008926B3 /* AppDelegate.swift in Sources */,
 				3E30786C23EB5954008926B3 /* FavoritesViewController.swift in Sources */,
+				F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */,
+
+				3E30788523EB64A2008926B3 /* Secrets.swift in Sources */,
 				3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */,
 				3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */,
 				3E30787223EB59CB008926B3 /* NYTBookStruct.swift in Sources */,

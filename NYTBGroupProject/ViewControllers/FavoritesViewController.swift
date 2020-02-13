@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import DataPersistence
 import SafariServices
 
@@ -156,4 +157,5 @@ extension FavoritesViewController: SFSafariViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
+
 }
