@@ -55,6 +55,7 @@ extension Details {
 }
 
 struct Book: Codable & Equatable{
+   
     let rank: Int
     let title: String
     let publisher: String
@@ -62,6 +63,8 @@ struct Book: Codable & Equatable{
     let contributor: String
     let bookImage: String
     let buyLinks: [Links]
+    let weeksOnList: Int
+    let description: String
     
     
 }
@@ -75,6 +78,8 @@ extension Book {
         case author
         case bookImage = "book_image"
         case buyLinks = "buy_links"
+        case weeksOnList = "weeks_on_list"
+        case description
     }
     
 }

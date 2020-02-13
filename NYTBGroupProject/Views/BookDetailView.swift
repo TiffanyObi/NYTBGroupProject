@@ -177,8 +177,10 @@ class BookDetailView: UIView {
         
         
         print(selectedLink)
-        print(book?.buyLinks[sender.tag].url ?? "no data")
         
+        let url = book?.buyLinks[sender.tag].url ?? "no data"
+        print(url)
+    
     }
     
     

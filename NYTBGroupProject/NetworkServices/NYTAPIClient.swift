@@ -10,7 +10,7 @@ import Foundation
 import NetworkHelper
 
 struct NYTApiClient {
-    static func getTopics(completion: @escaping (Result<[BookTopics], AppError>)->()) {
+    static func getTopics(completion: @escaping (Result<[BookTopic], AppError>)->()) {
         let endpointURLString = "https://api.nytimes.com/svc/books/v3//lists/names.json?api-key=\(ApiKey.apiKey)"
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))
@@ -35,7 +35,7 @@ struct NYTApiClient {
         }
     }
     
-    static func getBooks(from topic: BookTopics, completion: @escaping (Result<[Books],AppError>)->()) {
+    static func getBooks(from topic: BookTopic, completion: @escaping (Result<[Book],AppError>)->()) {
         
         
         let endpointURL = "https://api.nytimes.com/svc/books/v3/lists/current/\(topic.listNameEncoded).json?api-key=\(ApiKey.apiKey)"
