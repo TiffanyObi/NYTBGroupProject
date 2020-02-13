@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import DataPersistence
 
 class NYTTabController: UITabBarController {
@@ -36,7 +37,4 @@ class NYTTabController: UITabBarController {
         let controllers = [nytBestSellersVC, nytFavoritesVC, nytSettingsVC]
         viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
     }
-
-
-
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import DataPersistence
 
 class NYTBestSellersController: UIViewController {
