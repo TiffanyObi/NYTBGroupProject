@@ -8,17 +8,24 @@
 
 import UIKit
 import SafariServices
+import DataPersistence
 
 class BookDetailViewController: UIViewController {
 
-     private var bookDetailView = BookDetailView()
+    private var bookDetailView = BookDetailView()
+    private var dataPersistence: DataPersistence<Book>
+    private var selectedBook:Book
     
-    var url = "" {
-        didSet {
-            print("testing that the data transfers - \(url)")
-        }
+    init(_ dataPersistence: DataPersistence<Book>, _ selectedBook: Book){
+        self.dataPersistence = dataPersistence
+        self.selectedBook = selectedBook
+        super.init(nibName: nil, bundle: nil)
+       
     }
-    
+   
+    required init(coder: NSCoder) {
+        fatalError("error")
+    }
     
     override func loadView() {
         super.loadView()
