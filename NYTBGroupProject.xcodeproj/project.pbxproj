@@ -27,9 +27,19 @@
 		3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787A23EB5AC0008926B3 /* BookDetailView.swift */; };
 		3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787C23EB5AF1008926B3 /* FavoritesView.swift */; };
 		3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30787E23EB5B09008926B3 /* SettingView.swift */; };
+
 		4DE254CE23F5D04C000A09D9 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE254CD23F5D04C000A09D9 /* ShowAlert.swift */; };
 		4DE254D423F5DD8D000A09D9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE254D323F5DD8D000A09D9 /* UserDefaults.swift */; };
 		4DE254D823F5F075000A09D9 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE254D723F5F075000A09D9 /* Secret.swift */; };
+
+
+		8D4CD85823EB772900A3A9F4 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CD85723EB772900A3A9F4 /* SecretKey.swift */; };
+		8D7A584123F5BC1F007A3F95 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A584023F5BC1F007A3F95 /* EmptyView.swift */; };
+
+		F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3900123F5B73800D62DB5 /* Secrets.swift */; };
+		3E30788523EB64A2008926B3 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30788423EB64A2008926B3 /* Secrets.swift */; };
+
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,15 @@
 		4DE254CD23F5D04C000A09D9 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		4DE254D323F5DD8D000A09D9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4DE254D723F5F075000A09D9 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+
+
+		8D4CD85723EB772900A3A9F4 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		8D7A584023F5BC1F007A3F95 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+
+		F1E3900123F5B73800D62DB5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3E30788423EB64A2008926B3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +133,15 @@
 				4DE254D623F5F058000A09D9 /* Secrets */,
 				4DE254D223F5DD2A000A09D9 /* UserDefaults */,
 				4DE254CC23F5D02E000A09D9 /* Extensions */,
+
+
+				8D4CD85623EB770600A3A9F4 /* Secrets */,
+
+				F1E3900023F5B72300D62DB5 /* Secrets */,
+				3E30788323EB647D008926B3 /* Secrets */,
+
 				3E30786323EB5824008926B3 /* Models */,
-				3E30786023EB57DF008926B3 /* Network Services */,
+				3E30786023EB57DF008926B3 /* NetworkServices */,
 				3E30787523EB5A44008926B3 /* CollectionViewCells */,
 				3E30786423EB5841008926B3 /* Views */,
 				3E30786123EB57F2008926B3 /* ViewControllers */,
@@ -138,12 +164,12 @@
 			path = NYTBGroupProjectTests;
 			sourceTree = "<group>";
 		};
-		3E30786023EB57DF008926B3 /* Network Services */ = {
+		3E30786023EB57DF008926B3 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
 				3E30786F23EB59AC008926B3 /* NYTAPIClient.swift */,
 			);
-			path = "Network Services";
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 		3E30786123EB57F2008926B3 /* ViewControllers */ = {
@@ -173,6 +199,7 @@
 				3E30787A23EB5AC0008926B3 /* BookDetailView.swift */,
 				3E30787C23EB5AF1008926B3 /* FavoritesView.swift */,
 				3E30787E23EB5B09008926B3 /* SettingView.swift */,
+				8D7A584023F5BC1F007A3F95 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +213,7 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+
 		4DE254CC23F5D02E000A09D9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +234,23 @@
 			isa = PBXGroup;
 			children = (
 				4DE254D723F5F075000A09D9 /* Secret.swift */,
+
+
+		8D4CD85623EB770600A3A9F4 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				8D4CD85723EB772900A3A9F4 /* SecretKey.swift */,
+
+		F1E3900023F5B72300D62DB5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				F1E3900123F5B73800D62DB5 /* Secrets.swift */,
+		3E30788323EB647D008926B3 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				3E30788423EB64A2008926B3 /* Secrets.swift */,
+
+
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -322,11 +367,19 @@
 				3E30787723EB5A8D008926B3 /* NYTBestSellersCell.swift in Sources */,
 				3E30783C23EB5727008926B3 /* AppDelegate.swift in Sources */,
 				3E30786C23EB5954008926B3 /* FavoritesViewController.swift in Sources */,
+				F1E3900223F5B73800D62DB5 /* Secrets.swift in Sources */,
+
+				3E30788523EB64A2008926B3 /* Secrets.swift in Sources */,
 				3E30787F23EB5B09008926B3 /* SettingView.swift in Sources */,
 				3E30787D23EB5AF1008926B3 /* FavoritesView.swift in Sources */,
 				3E30787223EB59CB008926B3 /* NYTBookStruct.swift in Sources */,
+
 				4DE254D823F5F075000A09D9 /* Secret.swift in Sources */,
+
+				8D4CD85823EB772900A3A9F4 /* SecretKey.swift in Sources */,
+
 				3E30787B23EB5AC0008926B3 /* BookDetailView.swift in Sources */,
+				8D7A584123F5BC1F007A3F95 /* EmptyView.swift in Sources */,
 				3E30787923EB5AA2008926B3 /* FavoritesCell.swift in Sources */,
 				3E30786A23EB5931008926B3 /* BookDetailViewController.swift in Sources */,
 				4DE254D423F5DD8D000A09D9 /* UserDefaults.swift in Sources */,
@@ -487,7 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26RHXP32FH;
+				DEVELOPMENT_TEAM = CNV924Q9C2;
 				INFOPLIST_FILE = NYTBGroupProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
