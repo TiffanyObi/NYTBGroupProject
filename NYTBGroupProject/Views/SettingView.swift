@@ -9,13 +9,43 @@
 import UIKit
 
 class SettingView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    
+    public lazy var settingsPickerView: UIPickerView = {
+        let pickerView = UIPickerView()
+        
+        return pickerView
+    }()
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
     }
-    */
-
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        setUpPickerViewConstraint()
+    }
+    
+    
+    private func setUpPickerViewConstraint() {
+        addSubview(settingsPickerView)
+        settingsPickerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            settingsPickerView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            settingsPickerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            settingsPickerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            settingsPickerView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            
+        ])
+        
+    }
+    
 }

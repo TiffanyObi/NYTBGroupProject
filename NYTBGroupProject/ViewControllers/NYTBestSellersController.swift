@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 import DataPersistence
 
 class NYTBestSellersController: UIViewController {
@@ -129,4 +130,5 @@ extension NYTBestSellersController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return topics[row].listname
     }
+
 }

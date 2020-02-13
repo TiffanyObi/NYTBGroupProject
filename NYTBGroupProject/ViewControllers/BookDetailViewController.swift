@@ -7,9 +7,6 @@
 //
 
 import UIKit
-
-
-
 import SafariServices
 import DataPersistence
 
@@ -40,5 +37,6 @@ class BookDetailViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         
     }
+
 
 }
