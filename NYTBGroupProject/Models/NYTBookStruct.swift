@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct SearchResult: Codable {
+struct SearchResult: Codable & Equatable {
                
-    let results: [BookTopics]
+    let results: [BookTopic]
                
 }
-struct BookTopics: Codable {
+struct BookTopic: Codable & Equatable{
     let listname: String
     let listNameEncoded: String
     let updated: String
 }
-extension BookTopics {
+extension BookTopic {
     
     enum CodingKeys: String,CodingKey {
         case listname = "list_name"
@@ -28,7 +28,7 @@ extension BookTopics {
     
 }
 
-struct FilteredBooks: Codable {
+struct FilteredBooks: Codable & Equatable {
     let numResults: Int
     let results: Details
   
@@ -41,10 +41,10 @@ struct FilteredBooks: Codable {
 }
 }
 
-struct Details: Codable {
+struct Details: Codable & Equatable {
         let displayname: String
         let bestsellersDate: String
-        let books : [Books]
+        let books : [Book]
     }
 extension Details {
     enum CodingKeys: String, CodingKey {
@@ -54,7 +54,7 @@ extension Details {
     }
 }
 
-struct Books: Codable {
+struct Book: Codable & Equatable{
     let rank: Int
     let title: String
     let publisher: String
@@ -66,7 +66,7 @@ struct Books: Codable {
     
 }
 
-extension Books {
+extension Book {
     enum CodingKeys: String, CodingKey {
         case rank
         case contributor
@@ -79,7 +79,7 @@ extension Books {
     
 }
 
-struct Links: Codable {
+struct Links: Codable & Equatable{
     let name: String
     let url: String
 }
