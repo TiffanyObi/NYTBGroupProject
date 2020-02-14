@@ -23,7 +23,7 @@ class FavoritesCell: UICollectionViewCell {
         let image = UIImageView()
         image.image = UIImage(systemName: "person.fill")
         image.backgroundColor = .systemBackground
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
         return image
     }()
     
@@ -33,7 +33,7 @@ class FavoritesCell: UICollectionViewCell {
         label.text = "Weeks as best seller"
         label.numberOfLines = 1
         label.textAlignment = .left
-        label.font = label.font.withSize(18)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
     
@@ -43,13 +43,13 @@ class FavoritesCell: UICollectionViewCell {
         textView.text = "Abstract"
         
         textView.textAlignment = .left
-        textView.font = textView.font?.withSize(17)
+        textView.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return textView
     }()
     
     public lazy var moreButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemBackground
+        button.tintColor = .black
         //button.setTitle("...", for: .normal)
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
@@ -128,7 +128,8 @@ class FavoritesCell: UICollectionViewCell {
     public func configureCell(for savedBook: Book) {
         currentBook = savedBook
         //TODO: add label and textviewe
-       // abstractTextView.text = savedBook
+        bestSellerLengthLabel.text = "\(savedBook.weeksOnList) weeks on BestSeller List"
+        abstractTextView.text = savedBook.description
         bookImage.getImage(with: savedBook.bookImage) { [weak self] (result) in
             switch result {
             case .failure:

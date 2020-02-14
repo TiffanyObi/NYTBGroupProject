@@ -38,10 +38,12 @@ class NYTBestSellersController: UIViewController {
         }
     }
     
-    init(_ dataPersistence: DataPersistence<Book>, userPref: UserPreference) {
+    init(_ dataPersistence: DataPersistence<Book>, _ userPref: UserPreference) {
         self.dataPersistance = dataPersistence
         self.userPref = userPref
+        //self.topics = topics
         super.init(nibName: nil, bundle: nil)
+        self.userPref.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -57,7 +59,8 @@ class NYTBestSellersController: UIViewController {
         nytbsView.backgroundColor = .systemGroupedBackground
         delegatesAndDataSources()
         loadTopics()
-        
+        //loadBooks(from: topics[self.userPref.getSectionIndex() ?? 7])
+        navigationItem.title = "NYT Bestsellers"
         collectionView.register(NYTBestSellersCell.self, forCellWithReuseIdentifier: "bestSellersCell")
     }
     
@@ -71,11 +74,11 @@ class NYTBestSellersController: UIViewController {
     private func loadTopics(){
         NYTApiClient.getTopics {[weak self] (result) in
             switch result {
-            case .failure:
-                //TODO: ADD SHOW ALERT
-                break
+            case .failure(let appError):
+                self?.showAlert(title: "Failed to get topics", message: "\(appError)")
             case .success(let topics):
                 self?.topics = topics
+                self?.loadBooks(from: topics[self?.userPref.getSectionIndex() ?? 7])
             }
         }
     }
@@ -83,9 +86,8 @@ class NYTBestSellersController: UIViewController {
     private func loadBooks(from topic: BookTopic){
         NYTApiClient.getBooks(from: topic) {[weak self] (result) in
             switch result{
-            case .failure:
-                //TODO: ADD SHOW ALERT
-                break
+            case .failure(let appError):
+                self?.showAlert(title: "Failed to load books", message: "\(appError)")
             case .success(let books):
                 self?.bestSellersBooks = books
             }
@@ -110,8 +112,8 @@ extension NYTBestSellersController: UICollectionViewDataSource{
 extension NYTBestSellersController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize:CGSize = UIScreen.main.bounds.size
-        let itemWidth:CGFloat = maxSize.width * 0.4
-        return CGSize(width: itemWidth, height: itemWidth*1.5)
+        let itemWidth:CGFloat = maxSize.width * 0.6
+        return CGSize(width: itemWidth, height: collectionView.bounds.size.height * 0.9)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -133,7 +135,6 @@ extension NYTBestSellersController: UIPickerViewDataSource{
         return topics.count
     }
     
-
 }
 
 extension NYTBestSellersController: UIPickerViewDelegate{
@@ -145,4 +146,13 @@ extension NYTBestSellersController: UIPickerViewDelegate{
         loadBooks(from: selectedTopic)
     }
 
+}
+
+extension NYTBestSellersController: UserPreferenceDelegate{
+    func didChangeBooksSection(_ userPreference: UserPreference, sectionIndex: Int) {
+        DispatchQueue.main.async {
+            self.pickerView.selectRow(sectionIndex, inComponent: 0, animated: true)
+            self.loadBooks(from: self.topics[sectionIndex])
+        }
+    }
 }

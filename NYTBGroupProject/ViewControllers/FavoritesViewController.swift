@@ -21,7 +21,17 @@ class FavoritesViewController: UIViewController {
     private var favoriteBooks = [Book]() {
         didSet {
             favoriteView.collectionView.reloadData()
+            
             //TODO: add EmptyView here
+            if favoriteBooks.isEmpty {
+                
+                // setup background view, in case there are no saved articles
+                favoriteView.collectionView.backgroundView = EmptyView(title: "Favorite Books", messege: "There are currently no Favorited Books. Start browsing!")
+            } else {
+                favoriteView.collectionView.backgroundView = nil
+            }
+            
+            navigationItem.title = "Favorites(\(favoriteBooks.count))"
         }
     }
     
@@ -38,15 +48,16 @@ class FavoritesViewController: UIViewController {
     override func loadView() {
         view = favoriteView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteView.backgroundColor = .white
-        navigationItem.title = "Favorites(0)"
+        navigationItem.title = "Favorites(\(favoriteBooks.count))"
         favoriteView.collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
         favoriteView.collectionView.dataSource = self
         favoriteView.collectionView.delegate = self
-
+        fetchFavoriteBooks()
+        
     }
     
     private func fetchFavoriteBooks() {
@@ -57,13 +68,13 @@ class FavoritesViewController: UIViewController {
         }
     }
     
-
-
+    
+    
 }
 
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteBooks.count
+        return  favoriteBooks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,7 +82,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
             fatalError("could not downcast to FavoriteCell")
         }
         let book = favoriteBooks[indexPath.row]
-        cell.backgroundColor = .yellow
+        cell.backgroundColor = #colorLiteral(red: 1, green: 0.6895940304, blue: 0.7145395279, alpha: 1)
         cell.configureCell(for: book)
         cell.delegate = self
         return cell
@@ -113,31 +124,65 @@ extension FavoritesViewController: DataPersistenceDelegate {
 extension FavoritesViewController: FavoritesCellDelegate {
     func didSelectMoreButton(_ favoritesCell: FavoritesCell, book: Book) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
-                // write a delete helper function
-                self.deleteBook(book)
-            }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
+            // write a delete helper function
+            self.deleteBook(book)
+        }
         let goToAmazonAction = UIAlertAction(title: "See on Amazon", style: .default) { (alertAction) in
             self.gotoAmazon(book)
         }
-            alertController.addAction(goToAmazonAction)
-            alertController.addAction(cancelAction)
-            alertController.addAction(deleteAction)
-            present(alertController, animated: true)
+        let goToBarnesAndNobleAction = UIAlertAction(title: "See on Barnes and Noble", style: .default) { (alertAction) in
+            self.gotoBaN(book)
         }
         
-        private func deleteBook(_ book: Book) {
-            guard let index = favoriteBooks.firstIndex(of: book) else {
-                return
-            }
-            do {
-                // deletes from documents directory
-                try dataPersistance.deleteItem(at: index)
-            } catch {
-                print("error deleting article \(error)")
-                
-            }
+        let goToAppleBooksAction = UIAlertAction(title: "See on Apple Books", style: .default) { (alertAction) in
+            self.gotoAppleBooks(book)
+        }
+        let goToLocalSellerAction = UIAlertAction(title: "See Local Sellers", style: .default) { (alertAction) in
+            self.gotoLocalSeller(book)
+        }
+        
+        alertController.addAction(goToAppleBooksAction)
+        alertController.addAction(goToAmazonAction)
+        alertController.addAction(goToBarnesAndNobleAction)
+        alertController.addAction(goToLocalSellerAction)
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true)
+    }
+    
+    private func deleteBook(_ book: Book) {
+        guard let index = favoriteBooks.firstIndex(of: book) else {
+            return
+        }
+        do {
+            // deletes from documents directory
+            try dataPersistance.deleteItem(at: index)
+        } catch {
+            print("error deleting article \(error)")
+            
+        }
+        
+        
+    }
+    
+    private func gotoLocalSeller(_ book: Book) {
+        guard let url = URL(string: book.buyLinks[3].url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true, completion: nil)
+        
+    }
+    
+    private func gotoBaN(_ book: Book) {
+        guard let url = URL(string: book.buyLinks[2].url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true, completion: nil)
+        
     }
     
     private func gotoAmazon(_ book: Book) {
@@ -146,17 +191,18 @@ extension FavoritesViewController: FavoritesCellDelegate {
         }
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true, completion: nil)
-       // safariVC.delegate = self
+       
+    }
+    
+    private func gotoAppleBooks(_ book: Book) {
+        guard let url = URL(string: book.buyLinks[1].url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true, completion: nil)
+        
     }
     
     
 }
 
-extension FavoritesViewController: SFSafariViewControllerDelegate {
-    
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-
-}

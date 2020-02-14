@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController {
     
     init(_ userPref: UserPreference) {
         self.userPref = userPref
+        //self.bookTopics = bookTopics
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,18 +37,18 @@ class SettingsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         getTopics()
-
         settingView.settingsPickerView.dataSource = self
         settingView.settingsPickerView.delegate = self
-        
+        navigationItem.title = "Pick A Catagory"
         view.backgroundColor = .systemYellow
 //        let loadedTopicIndex = userPref.getSectionIndex()
 //        settingView.settingsPickerView.selectedRow(inComponent: loadedTopicIndex ?? 0)
     }
     
     private func getTopics() {
-        
+
         NYTApiClient.getTopics { [weak self] (result) in
             switch result {
             case .failure(let appError):
@@ -58,6 +59,9 @@ class SettingsViewController: UIViewController {
                 print(topics.count)
                 print(topics[0].listname)
                 self?.bookTopics = topics
+                DispatchQueue.main.async {
+                    self?.settingView.settingsPickerView.selectRow(self?.userPref.getSectionIndex() ?? 0, inComponent: 0, animated: true)
+                }
             }
         }
     }

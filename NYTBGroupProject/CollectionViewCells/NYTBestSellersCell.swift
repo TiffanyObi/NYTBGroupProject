@@ -12,20 +12,26 @@ import ImageKit
 class NYTBestSellersCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
     lazy var headLabel : UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Didot", size: 20)
+        label.text = "test"
+      
         return label
     }()
     
     lazy var subLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Didot", size: 17)
+        label.text = "Test1"
+       
         return label
     }()
     
@@ -43,6 +49,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         addImageViewConstrainsts()
         addHeadLabelConstrainsts()
         addSubLabelConstrainsts()
+        self.backgroundColor = .systemBackground
     }
     
     private func addImageViewConstrainsts(){
@@ -50,7 +57,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
         ])
@@ -60,11 +67,17 @@ class NYTBestSellersCell: UICollectionViewCell {
         addSubview(headLabel)
         headLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            headLabel.topAnchor.constraint(greaterThanOrEqualTo: imageView.bottomAnchor, constant: 8),
-            headLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 8),
-            headLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+//            headLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+//            headLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
+////            headLabel.top.constraint(equalTo: imageView.centerYAnchor, constant: 40),
+//            headLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+//            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
+            
+            headLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
+            headLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+          headLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
+            
         ])
     }
     
@@ -72,11 +85,16 @@ class NYTBestSellersCell: UICollectionViewCell {
         addSubview(subLabel)
         subLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subLabel.topAnchor.constraint(greaterThanOrEqualTo: headLabel.bottomAnchor, constant: 8),
-            subLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            subLabel.centerYAnchor.constraint(equalTo: headLabel.centerYAnchor, constant: 8),
-            subLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+//            subLabel.topAnchor.constraint(equalTo: headLabel.bottomAnchor, constant: 2),
+//            subLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+////            subLabel.centerYAnchor.constraint(equalTo: headLabel.centerYAnchor, constant: 8),
+//            subLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+//            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+//            subLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            
+            subLabel.topAnchor.constraint(equalTo: headLabel.bottomAnchor),
+            subLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8), subLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
     
@@ -84,7 +102,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         imageView.getImage(with: book.bookImage) { (result) in
             switch result{
             case .failure:
-                self.imageView.image = UIImage(systemName: "")
+                self.imageView.image = UIImage(systemName: "photo")
             case .success(let image):
                 let deviceBounds = UIScreen.main.bounds.size
                 let width = deviceBounds.width * 0.4
@@ -94,8 +112,8 @@ class NYTBestSellersCell: UICollectionViewCell {
                 }
             }
         }
-        headLabel.text = book.title
-        subLabel.text = book.title
+        headLabel.text = "\(book.weeksOnList) weeks on bestseller list"
+        subLabel.text = book.description
     }
 }
 
