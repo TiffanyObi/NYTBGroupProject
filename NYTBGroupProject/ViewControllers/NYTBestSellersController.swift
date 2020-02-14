@@ -59,7 +59,7 @@ class NYTBestSellersController: UIViewController {
         nytbsView.backgroundColor = .systemGroupedBackground
         delegatesAndDataSources()
         loadBooks(from: topics[self.userPref.getSectionIndex() ?? 7])
-        
+        navigationItem.title = "NYT Bestsellers"
         collectionView.register(NYTBestSellersCell.self, forCellWithReuseIdentifier: "bestSellersCell")
     }
     
