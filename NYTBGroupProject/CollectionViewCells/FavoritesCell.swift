@@ -33,7 +33,7 @@ class FavoritesCell: UICollectionViewCell {
         label.text = "Weeks as best seller"
         label.numberOfLines = 1
         label.textAlignment = .left
-        label.font = label.font.withSize(18)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
     
@@ -43,13 +43,13 @@ class FavoritesCell: UICollectionViewCell {
         textView.text = "Abstract"
         
         textView.textAlignment = .left
-        textView.font = textView.font?.withSize(17)
+        textView.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return textView
     }()
     
     public lazy var moreButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemBackground
+        button.tintColor = .black
         //button.setTitle("...", for: .normal)
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
