@@ -30,6 +30,8 @@ class FavoritesViewController: UIViewController {
             } else {
                 favoriteView.collectionView.backgroundView = nil
             }
+            
+            navigationItem.title = "Favorites(\(favoriteBooks.count))"
         }
     }
     

@@ -38,10 +38,10 @@ class NYTBestSellersController: UIViewController {
         }
     }
     
-    init(_ dataPersistence: DataPersistence<Book>, _ userPref: UserPreference, _ topics: [BookTopic]) {
+    init(_ dataPersistence: DataPersistence<Book>, _ userPref: UserPreference) {
         self.dataPersistance = dataPersistence
         self.userPref = userPref
-        self.topics = topics
+        //self.topics = topics
         super.init(nibName: nil, bundle: nil)
         self.userPref.delegate = self
     }
@@ -58,7 +58,8 @@ class NYTBestSellersController: UIViewController {
         super.viewDidLoad()
         nytbsView.backgroundColor = .systemGroupedBackground
         delegatesAndDataSources()
-        loadBooks(from: topics[self.userPref.getSectionIndex() ?? 7])
+        loadTopics()
+        //loadBooks(from: topics[self.userPref.getSectionIndex() ?? 7])
         navigationItem.title = "NYT Bestsellers"
         collectionView.register(NYTBestSellersCell.self, forCellWithReuseIdentifier: "bestSellersCell")
     }
@@ -68,6 +69,18 @@ class NYTBestSellersController: UIViewController {
         collectionView.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
+    }
+    
+    private func loadTopics(){
+        NYTApiClient.getTopics {[weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                self?.showAlert(title: "Failed to get topics", message: "\(appError)")
+            case .success(let topics):
+                self?.topics = topics
+                self?.loadBooks(from: topics[self?.userPref.getSectionIndex() ?? 7])
+            }
+        }
     }
     
     private func loadBooks(from topic: BookTopic){
@@ -122,7 +135,6 @@ extension NYTBestSellersController: UIPickerViewDataSource{
         return topics.count
     }
     
-
 }
 
 extension NYTBestSellersController: UIPickerViewDelegate{
@@ -138,6 +150,9 @@ extension NYTBestSellersController: UIPickerViewDelegate{
 
 extension NYTBestSellersController: UserPreferenceDelegate{
     func didChangeBooksSection(_ userPreference: UserPreference, sectionIndex: Int) {
-        pickerView.selectRow(sectionIndex, inComponent: 0, animated: true)
+        DispatchQueue.main.async {
+            self.pickerView.selectRow(sectionIndex, inComponent: 0, animated: true)
+            self.loadBooks(from: self.topics[sectionIndex])
+        }
     }
 }

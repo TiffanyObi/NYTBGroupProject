@@ -54,14 +54,14 @@ class BookDetailView: UIView {
     }()
     private lazy var barnesAndNoblesButton: UIButton = {
         let button = UIButton()
-       button.setImage(UIImage(named: "barnesandnoble"), for: .normal)
+       button.setImage(UIImage(named: "applebook"), for: .normal)
         button.tag = 1
 //        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         return button
     }()
     private lazy var appleBooksButton: UIButton = {
            let button = UIButton()
-           button.setImage(UIImage(named: "applebook"), for: .normal)
+           button.setImage(UIImage(named: "barnesandnoble"), for: .normal)
         button.tag = 2
 //        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
            return button
