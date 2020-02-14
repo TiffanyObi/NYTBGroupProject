@@ -16,9 +16,10 @@ class NYTTabController: UITabBarController {
     private let dataPersistence = DataPersistence<Book>(filename: "SavedNYTBestSellers")
     
     private let userPref = UserPreference()
+    private var topics = [BookTopic]()
     
     lazy var nytBestSellersVC:NYTBestSellersController = {
-        let vc = NYTBestSellersController(dataPersistence, userPref: userPref)
+        let vc = NYTBestSellersController(dataPersistence, userPref, topics)
         vc.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "eyeglasses"), tag: 0)
         return vc
     }()
@@ -30,14 +31,26 @@ class NYTTabController: UITabBarController {
     }()
     
     lazy var nytSettingsVC:SettingsViewController = {
-        let vc = SettingsViewController(userPref)
-        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "pencil"), tag: 0)
+        let vc = SettingsViewController(userPref, topics)
+        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "pencil"), tag: 2)
         return vc
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadTopics()
         let controllers = [nytBestSellersVC, nytFavoritesVC, nytSettingsVC]
         viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
+    }
+    
+    private func loadTopics(){
+        NYTApiClient.getTopics {[weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                self?.showAlert(title: "Failed to get topics", message: "\(appError)")
+            case .success(let topics):
+                self?.topics = topics
+            }
+        }
     }
 }
