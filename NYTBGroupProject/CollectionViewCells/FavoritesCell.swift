@@ -23,7 +23,7 @@ class FavoritesCell: UICollectionViewCell {
         let image = UIImageView()
         image.image = UIImage(systemName: "person.fill")
         image.backgroundColor = .systemBackground
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
         return image
     }()
     

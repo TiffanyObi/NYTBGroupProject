@@ -12,22 +12,26 @@ import ImageKit
 class NYTBestSellersCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
     lazy var headLabel : UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont(name: "Didot", size: 20)
         label.text = "test"
+      
         return label
     }()
     
     lazy var subLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 5
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Didot", size: 17)
         label.text = "Test1"
+       
         return label
     }()
     
@@ -52,7 +56,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            //imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
@@ -63,11 +67,17 @@ class NYTBestSellersCell: UICollectionViewCell {
         addSubview(headLabel)
         headLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            headLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-//            headLabel.top.constraint(equalTo: imageView.centerYAnchor, constant: 40),
+//            headLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+//            headLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
+////            headLabel.top.constraint(equalTo: imageView.centerYAnchor, constant: 40),
+//            headLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+//            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
+            
+            headLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 2),
             headLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            headLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+          headLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
+            
         ])
     }
     
@@ -75,12 +85,16 @@ class NYTBestSellersCell: UICollectionViewCell {
         addSubview(subLabel)
         subLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subLabel.topAnchor.constraint(equalTo: headLabel.bottomAnchor, constant: 8),
-            subLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            subLabel.centerYAnchor.constraint(equalTo: headLabel.centerYAnchor, constant: 8),
+//            subLabel.topAnchor.constraint(equalTo: headLabel.bottomAnchor, constant: 2),
+//            subLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+////            subLabel.centerYAnchor.constraint(equalTo: headLabel.centerYAnchor, constant: 8),
+//            subLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2),
+//            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+//            subLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            
+            subLabel.topAnchor.constraint(equalTo: headLabel.bottomAnchor),
             subLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            subLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            subLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8), subLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
     
