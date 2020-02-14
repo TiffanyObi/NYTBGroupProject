@@ -80,7 +80,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
             fatalError("could not downcast to FavoriteCell")
         }
         let book = favoriteBooks[indexPath.row]
-        cell.backgroundColor = .yellow
+        cell.backgroundColor = #colorLiteral(red: 1, green: 0.6895940304, blue: 0.7145395279, alpha: 1)
         cell.configureCell(for: book)
         cell.delegate = self
         return cell
