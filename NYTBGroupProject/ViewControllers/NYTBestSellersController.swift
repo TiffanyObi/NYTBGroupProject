@@ -113,7 +113,7 @@ extension NYTBestSellersController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize:CGSize = UIScreen.main.bounds.size
         let itemWidth:CGFloat = maxSize.width * 0.6
-        return CGSize(width: itemWidth, height: itemWidth*1.3)
+        return CGSize(width: itemWidth, height: collectionView.bounds.size.height * 0.9)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
