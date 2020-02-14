@@ -45,6 +45,8 @@ class BookDetailViewController: UIViewController {
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(favoriteButtonPressed))
         
+        navigationItem.title = "Best of:  \(selectedBook.author)".uppercased()
+        
          updateUI()
     }
     
