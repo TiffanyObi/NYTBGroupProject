@@ -22,8 +22,9 @@ class SettingsViewController: UIViewController {
 }
     private var userPref:UserPreference
     
-    init(_ userPref: UserPreference) {
+    init(_ userPref: UserPreference, _ bookTopics: [BookTopic]) {
         self.userPref = userPref
+        self.bookTopics = bookTopics
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,7 +37,7 @@ class SettingsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTopics()
+      
 
         settingView.settingsPickerView.dataSource = self
         settingView.settingsPickerView.delegate = self
@@ -46,21 +47,21 @@ class SettingsViewController: UIViewController {
 //        settingView.settingsPickerView.selectedRow(inComponent: loadedTopicIndex ?? 0)
     }
     
-    private func getTopics() {
-        
-        NYTApiClient.getTopics { [weak self] (result) in
-            switch result {
-            case .failure(let appError):
-                DispatchQueue.main.async {
-                    self?.showAlert(title: "Error", message: "Could not get Topics\(appError)")
-                }
-            case .success(let topics):
-                print(topics.count)
-                print(topics[0].listname)
-                self?.bookTopics = topics
-            }
-        }
-    }
+//    private func getTopics() {
+//
+//        NYTApiClient.getTopics { [weak self] (result) in
+//            switch result {
+//            case .failure(let appError):
+//                DispatchQueue.main.async {
+//                    self?.showAlert(title: "Error", message: "Could not get Topics\(appError)")
+//                }
+//            case .success(let topics):
+//                print(topics.count)
+//                print(topics[0].listname)
+//                self?.bookTopics = topics
+//            }
+//        }
+//    }
 }
 
 extension SettingsViewController: UIPickerViewDataSource {
