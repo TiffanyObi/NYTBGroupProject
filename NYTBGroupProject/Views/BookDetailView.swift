@@ -145,7 +145,7 @@ class BookDetailView: UIView {
             summaryTextView.topAnchor.constraint(equalTo: bookNameLabel.bottomAnchor, constant: 40),
             summaryTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             summaryTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            summaryTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30)
+            summaryTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20)
         
         
         

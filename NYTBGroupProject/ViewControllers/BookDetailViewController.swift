@@ -15,14 +15,14 @@ class BookDetailViewController: UIViewController {
     private var bookDetailView = BookDetailView()
     private var dataPersistence: DataPersistence<Book>
     private var selectedBook:Book
-    
+
     init(_ dataPersistence: DataPersistence<Book>, _ selectedBook: Book){
         self.dataPersistence = dataPersistence
         self.selectedBook = selectedBook
         super.init(nibName: nil, bundle: nil)
-       
+
     }
-   
+
     required init(coder: NSCoder) {
         fatalError("error")
     }

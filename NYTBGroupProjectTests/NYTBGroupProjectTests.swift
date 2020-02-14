@@ -311,10 +311,11 @@ class NYTBGroupProjectTests: XCTestCase {
         let count = 5
         
         let exp = XCTestExpectation(description: "search found") //need this
+        let bookTopic = BookTopic(listname: "", listNameEncoded: "combined-print-and-e-book-nonfiction", updated: "")
 
         //act
     
-        NYTApiClient.getBooks(from: "combined-print-and-e-book-nonfiction") { (result) in
+        NYTApiClient.getBooks(from: bookTopic) { (result) in
                     switch result {
                     case .failure(let error):
                         print(error)

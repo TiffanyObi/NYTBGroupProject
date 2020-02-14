@@ -8,23 +8,36 @@
 
 import UIKit
 
+
+import DataPersistence
+
 class NYTTabController: UITabBarController {
     
+    private let dataPersistence = DataPersistence<Book>(filename: "SavedNYTBestSellers")
+    
+    private let userPref = UserPreference()
+    
+    lazy var nytBestSellersVC:NYTBestSellersController = {
+        let vc = NYTBestSellersController(dataPersistence, userPref: userPref)
+        vc.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "eyeglasses"), tag: 0)
+        return vc
+    }()
+    
+    lazy var nytFavoritesVC:FavoritesViewController = {
+        let vc = FavoritesViewController(dataPersistence)
+        vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "bookmark.fill"), tag: 1)
+        return vc
+    }()
+    
+    lazy var nytSettingsVC:SettingsViewController = {
+        let vc = SettingsViewController(userPref)
+        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "pencil"), tag: 0)
+        return vc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let controllers = [nytBestSellersVC, nytFavoritesVC, nytSettingsVC]
+        viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
