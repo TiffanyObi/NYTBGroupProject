@@ -128,7 +128,8 @@ class FavoritesCell: UICollectionViewCell {
     public func configureCell(for savedBook: Book) {
         currentBook = savedBook
         //TODO: add label and textviewe
-       // abstractTextView.text = savedBook
+        bestSellerLengthLabel.text = "\(savedBook.weeksOnList) weeks on BestSeller List"
+        abstractTextView.text = savedBook.description
         bookImage.getImage(with: savedBook.bookImage) { [weak self] (result) in
             switch result {
             case .failure:

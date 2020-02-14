@@ -21,7 +21,15 @@ class FavoritesViewController: UIViewController {
     private var favoriteBooks = [Book]() {
         didSet {
             favoriteView.collectionView.reloadData()
+            
             //TODO: add EmptyView here
+            if favoriteBooks.isEmpty {
+                           
+                           // setup background view, in case there are no saved articles
+                           favoriteView.collectionView.backgroundView = EmptyView(title: "Favorite Books", messege: "There are currently no Favorited Books. Start browsing!")
+                       } else {
+                           favoriteView.collectionView.backgroundView = nil
+                       }
         }
     }
     
@@ -46,6 +54,7 @@ class FavoritesViewController: UIViewController {
         favoriteView.collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "favoritesCell")
         favoriteView.collectionView.dataSource = self
         favoriteView.collectionView.delegate = self
+        fetchFavoriteBooks()
 
     }
     
@@ -63,7 +72,7 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteBooks.count
+        return  favoriteBooks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
