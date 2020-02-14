@@ -22,9 +22,9 @@ class SettingsViewController: UIViewController {
 }
     private var userPref:UserPreference
     
-    init(_ userPref: UserPreference, _ bookTopics: [BookTopic]) {
+    init(_ userPref: UserPreference) {
         self.userPref = userPref
-        self.bookTopics = bookTopics
+        //self.bookTopics = bookTopics
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-
+        getTopics()
         settingView.settingsPickerView.dataSource = self
         settingView.settingsPickerView.delegate = self
         navigationItem.title = "Pick A Catagory"
@@ -47,21 +47,24 @@ class SettingsViewController: UIViewController {
 //        settingView.settingsPickerView.selectedRow(inComponent: loadedTopicIndex ?? 0)
     }
     
-//    private func getTopics() {
-//
-//        NYTApiClient.getTopics { [weak self] (result) in
-//            switch result {
-//            case .failure(let appError):
-//                DispatchQueue.main.async {
-//                    self?.showAlert(title: "Error", message: "Could not get Topics\(appError)")
-//                }
-//            case .success(let topics):
-//                print(topics.count)
-//                print(topics[0].listname)
-//                self?.bookTopics = topics
-//            }
-//        }
-//    }
+    private func getTopics() {
+
+        NYTApiClient.getTopics { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Error", message: "Could not get Topics\(appError)")
+                }
+            case .success(let topics):
+                print(topics.count)
+                print(topics[0].listname)
+                self?.bookTopics = topics
+                DispatchQueue.main.async {
+                    self?.settingView.settingsPickerView.selectRow(self?.userPref.getSectionIndex() ?? 0, inComponent: 0, animated: true)
+                }
+            }
+        }
+    }
 }
 
 extension SettingsViewController: UIPickerViewDataSource {
