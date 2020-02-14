@@ -9,14 +9,14 @@
 import UIKit
 import DataPersistence
 
-class BookDetailView: UIView {
 
-    private var book: Book?
-//    private var dataPersistence: DataPersistence<Book>
+
+
+class BookDetailView: UIView {
     
+   
     
-    
-    private lazy var bookImageView: UIImageView = {
+    public lazy var bookImageView: UIImageView = {
         let imageView = UIImageView()
         
         imageView.image = UIImage(named: "queenOfHearts")
@@ -25,16 +25,17 @@ class BookDetailView: UIView {
         return imageView
     }()
     
-    private lazy var bookNameLabel: UILabel = {
+    public lazy var bookNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Queen Of Hearts"
+        label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: "Didot", size: 25.0)
+        label.font = UIFont(name: "Didot", size: 23.0)
         return label
     }()
     
     
-    private lazy var summaryTextView: UITextView = {
+    public lazy var summaryTextView: UITextView = {
         let textView = UITextView()
         textView.text = " UIButton or Segmented control There should be 4 buttons or 4 segemented control that would take you to a safari view controller to present the book sellers webpage,Safari ViewController It should show Amazon, apple books, Barnes & Nobles, Local Book Sellers based on one of the 4 buttons selected,The Detail ViewController should show the Book's image (Large image), a TextView for the description and a label for the book title and a Favorite button.Favorites Button When a user favorites a book there should be a show alert or animation (It's up to you) anything that shows the user the book they favrited was added "
         textView.font = UIFont(name: "Didot", size: 20.0)
@@ -47,7 +48,7 @@ class BookDetailView: UIView {
         let button = UIButton()
         button.setImage(UIImage(named: "amazon"), for: .normal)
         button.tag = 0
-        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -55,23 +56,25 @@ class BookDetailView: UIView {
         let button = UIButton()
        button.setImage(UIImage(named: "barnesandnoble"), for: .normal)
         button.tag = 1
-        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         return button
     }()
     private lazy var appleBooksButton: UIButton = {
            let button = UIButton()
            button.setImage(UIImage(named: "applebook"), for: .normal)
         button.tag = 2
-        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
            return button
        }()
     private lazy var localBooksellersButton: UIButton = {
            let button = UIButton()
        button.setImage(UIImage(named: "localbookstores"), for: .normal)
         button.tag = 3
-        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
            return button
        }()
+    
+    
     
     public lazy var allButtons: [UIButton] = {
         let buttons = [amazonButton,barnesAndNoblesButton,appleBooksButton,
@@ -145,7 +148,7 @@ class BookDetailView: UIView {
             summaryTextView.topAnchor.constraint(equalTo: bookNameLabel.bottomAnchor, constant: 40),
             summaryTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             summaryTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            summaryTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20)
+            summaryTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
         
         
         
@@ -171,17 +174,8 @@ class BookDetailView: UIView {
         ])
     }
     
-    @objc func buttonPressed(_ sender: UIButton){
-    let allButtons = ["0","1","2","3"]
-    let selectedLink = allButtons[sender.tag]
-        
-        
-        print(selectedLink)
-        
-        let url = book?.buyLinks[sender.tag].url ?? "no data"
-        print(url)
     
-    }
+   
     
     
 }
