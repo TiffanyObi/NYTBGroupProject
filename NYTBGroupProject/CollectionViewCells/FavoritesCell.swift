@@ -32,7 +32,7 @@ class FavoritesCell: UICollectionViewCell {
         label.backgroundColor = .systemBackground
         label.text = "Weeks as best seller"
         label.numberOfLines = 1
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
@@ -50,8 +50,9 @@ class FavoritesCell: UICollectionViewCell {
     public lazy var moreButton: UIButton = {
         let button = UIButton()
         button.tintColor = .black
-        //button.setTitle("...", for: .normal)
-        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+       
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
+        button.setImage(UIImage(systemName: "ellipsis", withConfiguration: imageConfig), for: .normal)
         button.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
         
         return button
@@ -120,15 +121,21 @@ class FavoritesCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            moreButton.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 45),
-            moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
+            moreButton.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 30),
+            moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
         ])
     }
     
     public func configureCell(for savedBook: Book) {
         currentBook = savedBook
         //TODO: add label and textviewe
-        bestSellerLengthLabel.text = "\(savedBook.weeksOnList) weeks on BestSeller List"
+        if savedBook.weeksOnList == 1 {
+           bestSellerLengthLabel.text = "\(savedBook.weeksOnList) week on best seller list"
+        } else if savedBook.weeksOnList == 0 {
+            bestSellerLengthLabel.text = "Recently added to best seller list"
+        } else {
+        bestSellerLengthLabel.text = "\(savedBook.weeksOnList) weeks on best seller list"
+        }
         abstractTextView.text = savedBook.description
         bookImage.getImage(with: savedBook.bookImage) { [weak self] (result) in
             switch result {

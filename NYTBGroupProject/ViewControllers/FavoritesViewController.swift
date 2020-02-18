@@ -82,7 +82,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
             fatalError("could not downcast to FavoriteCell")
         }
         let book = favoriteBooks[indexPath.row]
-        cell.backgroundColor = #colorLiteral(red: 1, green: 0.6895940304, blue: 0.7145395279, alpha: 1)
+        cell.backgroundColor = .systemBackground
         cell.configureCell(for: book)
         cell.delegate = self
         return cell
@@ -95,7 +95,7 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
-        let itemWidth: CGFloat = maxSize.width
+        let itemWidth: CGFloat = maxSize.width * 0.8
         let itemHeight: CGFloat = maxSize.height * 0.40
         return CGSize(width: itemWidth, height: itemHeight)
     }
