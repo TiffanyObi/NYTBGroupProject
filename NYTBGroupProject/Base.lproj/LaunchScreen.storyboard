@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,90 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books" translatesAutoresizingMaskIntoConstraints="NO" id="Pki-YH-kGU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melinda Diaz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpw-Ev-DdH">
+                                <rect key="frame" x="277" y="135" width="137" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="J75-d4-MaQ"/>
+                                    <constraint firstAttribute="width" constant="137" id="Pj1-Dd-ZfX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiffany Obi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-aO-Cy7">
+                                <rect key="frame" x="140" y="122" width="150" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="GN5-Sj-hLn"/>
+                                    <constraint firstAttribute="width" constant="150" id="SO0-ST-7Qq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienbenido Angeles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0Y-vG-uqw">
+                                <rect key="frame" x="16" y="154" width="150" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="XLK-ff-GA5"/>
+                                    <constraint firstAttribute="height" constant="24" id="ysv-Sl-Kwa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="16"/>
+                                <color key="textColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luba Kaper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-t5-AV7">
+                                <rect key="frame" x="302" y="161" width="112" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="cb2-W3-ebm"/>
+                                    <constraint firstAttribute="height" constant="22" id="hip-oc-cF0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="rIP-pP-mP6">
+                                <rect key="frame" x="224" y="723" width="190" height="153"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="153" id="ETp-gQ-YDv"/>
+                                    <constraint firstAttribute="width" constant="190" id="cd0-Ft-5wO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lpw-Ev-DdH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4lZ-tZ-wA9"/>
+                            <constraint firstItem="Wc3-t5-AV7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BLc-5l-6wc"/>
+                            <constraint firstAttribute="bottom" secondItem="rIP-pP-mP6" secondAttribute="bottom" constant="20" id="FHi-x5-CmI"/>
+                            <constraint firstItem="rIP-pP-mP6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lo1-w7-9qJ"/>
+                            <constraint firstItem="I0Y-vG-uqw" firstAttribute="top" secondItem="K8b-aO-Cy7" secondAttribute="bottom" constant="8" id="P94-tb-hfd"/>
+                            <constraint firstItem="Wc3-t5-AV7" firstAttribute="top" secondItem="Lpw-Ev-DdH" secondAttribute="bottom" constant="2" id="RLR-IE-dXy"/>
+                            <constraint firstItem="K8b-aO-Cy7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="RuF-hZ-iLm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K8b-aO-Cy7" secondAttribute="trailing" constant="124" id="YRD-Nz-7aA"/>
+                            <constraint firstItem="Lpw-Ev-DdH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="91" id="e9n-rb-cDn"/>
+                            <constraint firstItem="Pki-YH-kGU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eqh-LA-hBY"/>
+                            <constraint firstItem="Pki-YH-kGU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f9b-Tr-ZzT"/>
+                            <constraint firstItem="K8b-aO-Cy7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="he2-EI-ubV"/>
+                            <constraint firstItem="rIP-pP-mP6" firstAttribute="top" secondItem="Wc3-t5-AV7" secondAttribute="bottom" constant="540" id="jRm-cD-suf"/>
+                            <constraint firstItem="Pki-YH-kGU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="kdm-DT-2l3"/>
+                            <constraint firstItem="Wc3-t5-AV7" firstAttribute="top" secondItem="Lpw-Ev-DdH" secondAttribute="bottom" constant="2" id="lMT-1J-45f"/>
+                            <constraint firstItem="I0Y-vG-uqw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sAj-sD-yLn"/>
+                            <constraint firstAttribute="bottom" secondItem="Pki-YH-kGU" secondAttribute="bottom" id="xka-Lj-Jpo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="books" width="1000" height="1500"/>
+        <image name="iTunesArtwork" width="512" height="511.5"/>
+    </resources>
 </document>
