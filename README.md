@@ -34,7 +34,10 @@ Conflicts arose upon the absence of a "Git flow" in  the production of code. Spe
 ## Contributing:
 
 Bienbenido Angeles
+
 Melinda Diaz
+
 Tiffany Obi
+
 Luba Kaper
 
