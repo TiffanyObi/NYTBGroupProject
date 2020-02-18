@@ -41,7 +41,8 @@ class FavoritesCell: UICollectionViewCell {
         let textView = UITextView()
         textView.backgroundColor = .systemBackground
         textView.text = "Abstract"
-        
+        textView.isEditable = false
+        textView.isSelectable = false
         textView.textAlignment = .left
         textView.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return textView
