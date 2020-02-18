@@ -81,6 +81,11 @@ extension SettingsViewController: UIPickerViewDataSource {
 
 extension SettingsViewController: UIPickerViewDelegate {
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let string = bookTopics[row].listname
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+    }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 //        let sortedTopics = bookTopics.sorted{$0.listname < $1.listname}
         return bookTopics[row].listname
