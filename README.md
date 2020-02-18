@@ -1,7 +1,7 @@
 # NYTBGroupProject
 Group project - creating NYT bestsellers app. 
 
-## Gif:
+## Gifs:
 | BEST-SELLERS |
 
 ![screen1](https://user-images.githubusercontent.com/55755297/74781684-f0061780-526f-11ea-84e4-2a80d0dfaf83.gif)
