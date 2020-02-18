@@ -8,7 +8,7 @@ Group project - creating NYT bestsellers app.
 
 | Detail View |
 
-|![screen2](https://user-images.githubusercontent.com/55755297/74778868-73246f00-526a-11ea-8be3-f435a928b54c.gif)|
+|![screen2](https://user-images.githubusercontent.com/55755297/74781814-3bb8c100-5270-11ea-90c5-bf852eb3dc54.gif)|
 
 | Favorites |
 
