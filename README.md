@@ -12,7 +12,7 @@ Group project - creating NYT bestsellers app.
 
 | Favorites |
 
-|![screen3](https://user-images.githubusercontent.com/55755297/74778964-9f3ff000-526a-11ea-92c7-befbc19e4a8e.gif)|
+|![screen3](https://user-images.githubusercontent.com/55755297/74781941-86d2d400-5270-11ea-913b-9602a95ad75f.gif)|
 
 | Settings |
 
