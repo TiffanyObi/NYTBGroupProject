@@ -35,6 +35,13 @@ class SettingsViewController: UIViewController {
     override func loadView() {
         view = settingView
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        settingView.addBackgroundGradient()
+        settingView.setUpPickerViewConstraint()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
