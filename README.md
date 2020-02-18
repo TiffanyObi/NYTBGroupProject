@@ -4,7 +4,7 @@ Group project - creating NYT bestsellers app.
 ## Gif:
 | Bestsellers |
 
-|![screen1](https://user-images.githubusercontent.com/55755297/74780172-0a8ac180-526d-11ea-9716-7515a07af5e8.gif)|
+|![screen1](https://user-images.githubusercontent.com/55755297/74780323-5a698880-526d-11ea-8ac1-df4f3ebbdfa2.gif)|
 
 | Detail View |
 
