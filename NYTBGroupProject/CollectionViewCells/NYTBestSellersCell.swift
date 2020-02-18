@@ -112,7 +112,16 @@ class NYTBestSellersCell: UICollectionViewCell {
                 }
             }
         }
-        headLabel.text = "\(book.weeksOnList) weeks on bestseller list"
+        
+        if book.weeksOnList == 1 {
+           headLabel.text = "\(book.weeksOnList) week on best seller list"
+        } else if book.weeksOnList == 0 {
+            headLabel.text = "Recently added to best seller list"
+        } else {
+        headLabel.text = "\(book.weeksOnList) weeks on best seller list"
+        }
+        
+        //headLabel.text = "\(book.weeksOnList) weeks on bestseller list"
         subLabel.text = book.description
     }
 }
