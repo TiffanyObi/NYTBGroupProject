@@ -20,7 +20,7 @@ class NYTBestSellersCell: UICollectionViewCell {
     lazy var headLabel : UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Didot", size: 20)
+        label.font = UIFont(name: "Didot", size: 18)
         label.text = "test"
       
         return label
@@ -29,7 +29,7 @@ class NYTBestSellersCell: UICollectionViewCell {
     lazy var subLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 3
-        label.font = UIFont(name: "Didot", size: 17)
+        label.font = UIFont(name: "Didot", size: 15)
         label.text = "Test1"
        
         return label
@@ -116,7 +116,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         if book.weeksOnList == 1 {
            headLabel.text = "\(book.weeksOnList) week on best seller list"
         } else if book.weeksOnList == 0 {
-            headLabel.text = "Recently added to best seller list"
+            headLabel.text = "Recently added"
         } else {
         headLabel.text = "\(book.weeksOnList) weeks on best seller list"
         }
