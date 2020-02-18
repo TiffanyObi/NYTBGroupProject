@@ -49,7 +49,7 @@ class FavoritesCell: UICollectionViewCell {
     
     public lazy var moreButton: UIButton = {
         let button = UIButton()
-        button.tintColor = .black
+        button.tintColor = .systemGray
        
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
         button.setImage(UIImage(systemName: "ellipsis", withConfiguration: imageConfig), for: .normal)
