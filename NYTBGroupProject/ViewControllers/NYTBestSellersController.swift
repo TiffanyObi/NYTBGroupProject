@@ -87,7 +87,9 @@ class NYTBestSellersController: UIViewController {
         NYTApiClient.getBooks(from: topic) {[weak self] (result) in
             switch result{
             case .failure(let appError):
-                self?.showAlert(title: "Failed to load books", message: "\(appError)")
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Failed to load books", message: "\(appError)")
+                }
             case .success(let books):
                 self?.bestSellersBooks = books
             }

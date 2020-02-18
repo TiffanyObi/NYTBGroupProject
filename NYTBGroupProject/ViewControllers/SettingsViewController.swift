@@ -37,15 +37,17 @@ class SettingsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       
         getTopics()
         settingView.settingsPickerView.dataSource = self
         settingView.settingsPickerView.delegate = self
         navigationItem.title = "Pick A Catagory"
-        view.backgroundColor = .systemYellow
+       
 //        let loadedTopicIndex = userPref.getSectionIndex()
 //        settingView.settingsPickerView.selectedRow(inComponent: loadedTopicIndex ?? 0)
     }
+    
+    
     
     private func getTopics() {
 

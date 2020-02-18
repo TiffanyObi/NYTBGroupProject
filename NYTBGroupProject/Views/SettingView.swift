@@ -30,9 +30,19 @@ class SettingView: UIView {
     }
     
     private func commonInit() {
+        addBackgroundGradient()
         setUpPickerViewConstraint()
+        
     }
     
+    private func addBackgroundGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame.size = self.frame.size
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.systemGray2.cgColor]
+        self.layer.addSublayer(gradientLayer)
+    }
     
     private func setUpPickerViewConstraint() {
         addSubview(settingsPickerView)
