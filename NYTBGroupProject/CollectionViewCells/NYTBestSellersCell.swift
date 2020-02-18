@@ -22,7 +22,7 @@ class NYTBestSellersCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.font = UIFont(name: "Didot", size: 18)
         label.text = "test"
-      
+        label.textAlignment = .center
         return label
     }()
     
