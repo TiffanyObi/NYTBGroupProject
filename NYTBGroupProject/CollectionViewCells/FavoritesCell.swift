@@ -41,7 +41,8 @@ class FavoritesCell: UICollectionViewCell {
         let textView = UITextView()
         textView.backgroundColor = .systemBackground
         textView.text = "Abstract"
-        
+        textView.isEditable = false
+        textView.isSelectable = false
         textView.textAlignment = .left
         textView.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return textView
@@ -49,7 +50,7 @@ class FavoritesCell: UICollectionViewCell {
     
     public lazy var moreButton: UIButton = {
         let button = UIButton()
-        button.tintColor = .black
+        button.tintColor = .systemGray
        
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
         button.setImage(UIImage(systemName: "ellipsis", withConfiguration: imageConfig), for: .normal)
