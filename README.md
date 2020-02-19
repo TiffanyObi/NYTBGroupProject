@@ -25,11 +25,11 @@ This app displays a list of books in a Collection View from the New York Times a
 
 ## Code challenge:
 
-### Git Merge Conflicts and Flow
+### Git Merge Conflicts
 Conflicts arose upon the absence of a "Git flow" in  the production of code. Specifically, because we only branched off of a master branch as we worked on separate individual features. The master branch was to act as production code which would be  showcased. Also,  as we updated the code to master, we would branched off of it, again... etc. Unfortunately, only using the master branch caused a conflict in its code, when we finally tried to merge. To solve this, we created a git branch flow of "individual feature codes".  We could then branch off of the new master which we called, quality assurance (qa). The qa branch allowed multiple small pull requests to be merged from everyones individual
  branch. Upon large iterations of qa, it would eventually be merged alongside the production (prod) branch. This 'prod' branch became our new master that would contain all updates and changes to be publicly showcased.
 
-
+### Git Flow Diagram 
 <img width="460" alt="Screen Shot 2020-02-19 at 11 06 13 AM" src="https://user-images.githubusercontent.com/55755297/74850427-fba51d00-5307-11ea-86f6-1be13976fa1e.png">
 
 
