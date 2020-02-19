@@ -1,4 +1,4 @@
-# NewYorkTimes:Best-Sellers - Group Project
+# NewYorkTimes: Best-Sellers - Group Project
 Group project - creating NYT bestsellers app. 
 
 ## Description
