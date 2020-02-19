@@ -30,6 +30,8 @@ Conflicts arose upon the absence of a "Git flow" in  the production of code. Spe
  branch. Upon large iterations of qa, it would eventually be merged alongside the production (prod) branch. This 'prod' branch became our new master that would contain all updates and changes to be publicly showcased.
 
 
+<img width="461" alt="Screen Shot 2020-02-19 at 11 01 54 AM" src="https://user-images.githubusercontent.com/55755297/74849985-643fca00-5307-11ea-9b02-0a3afa45f36c.png">
+
 
 ## Contributing:
 
